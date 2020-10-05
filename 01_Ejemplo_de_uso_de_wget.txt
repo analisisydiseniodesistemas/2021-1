@@ -1,4 +1,4 @@
                                                                       Martes, 29 de septiembre de 2020
 In order to download this file, from a Debian terminal you can issue
-wget https://raw.githubusercontent.com/analisisydiseniodesistemas/2020-1/01_Ejemplo_de_uso_de_wget.txt
+wget https://raw.githubusercontent.com/analisisydiseniodesistemas/2020-1/master/01_Ejemplo_de_uso_de_wget.txt
 
