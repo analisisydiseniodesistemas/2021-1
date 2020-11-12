@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1592524868 source:c:\users\lmc\2020\23_clases_ads_operacionesalgebralineal\ads_complexnumbers\proyectocomplexnumbers\complexnumber.cpp
+	"ComplexNumber.hpp"
+	<cmath>
+
+1592528768 c:\users\lmc\2020\23_clases_ads_operacionesalgebralineal\ads_complexnumbers\proyectocomplexnumbers\complexnumber.hpp
+	<iostream>
+
+1592608871 source:c:\users\lmc\2020\23_clases_ads_operacionesalgebralineal\ads_complexnumbers\proyectocomplexnumbers\main.cpp
+	<iostream>
+	"ComplexNumber.hpp"
+
