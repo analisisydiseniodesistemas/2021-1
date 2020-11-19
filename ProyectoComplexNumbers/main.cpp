@@ -29,7 +29,7 @@ int main()
     std::cout<<"El resultado de evaluar la funcion f(x)=x*x+1 para x=z1 es "<<Zr<<std::endl;
     /* ACA Deberán agregar el uso de la función det() para resolver el sistema de ecuaciones*/
     /* EN ESTE CASO, para resolver el sistema de ecuaciones (véase el archivo Problema.docx)*/
-    /* DEBERAN UTILIZAR EL MËTODO CONOCIDO COMO REGLA DE CRAMER PARA RESOLVER EL SISTEMA DE
+    /* DEBERAN UTILIZAR EL MÉTODO CONOCIDO COMO REGLA DE CRAMER PARA RESOLVER EL SISTEMA DE
        ECUACIONES PLANTEADO EN EL ARCHIVO Problema.docx (disponible en el repositorio de github)*/
 
 
