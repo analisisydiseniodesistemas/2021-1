@@ -110,5 +110,34 @@ void Phone_Directory::save(){
 */
 int Phone_Directory::find(const string& name)const
 {
+  for(i=0;i<size;i++){
+    if(the_directory[i].get_name() == name)
+      return i;
+  }
+  return -1;
+}
+
+/** Adicionar un nuevo par nombre-numero al
+    directorio.
+@param name El nombre a ser agregado
+@param number El n\'umero a ser agregado
+*/
+void Phone_Directory::add(const std::string& name,
+                      const std::string& number){
+  if(size == capacity) // If no room, reallocate
+    reallocate();
+  // Incrementar size y agregar una nueva entrada.
+  the_directory[size] = Directory_Entry(name,number);
+  size++;
+}
+
+/** Crear un nuevo arreglo de las entradas del
+    directorio con el doble de la capacidad
+    actual.
+*/
+void Phone_Directory::reallocate(){
+  // Duplicar la capacidad.
+  capacity *= 2;
+  // Crear un nuevo arreglo del directorio.
 
 }
