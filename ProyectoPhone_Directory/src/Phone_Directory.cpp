@@ -1,9 +1,15 @@
+#include <fstream>
+using namespace std;
 #include "Phone_Directory.h"
 /** Construir un directorio telef\'onico vacio*/
 Phone_Directory::Phone_Directory()
 {
     capacity = 5;
     the_directory = new Directory_Entry[capacity];
+}
+
+Phone_Directory::~Phone_Directory(){
+  delete the_directory;
 }
 
 /** Cargar el archivo de datos que contiene el
@@ -73,8 +79,8 @@ std::string Phone_Directory::add_or_change_entry(
         directorio, una cadena vac\'ia
 */
 std::string Phone_Directory::lookup_entry(
-            const std::string name) const{
-  int index = find(name);
+            const std::string& Name) const{
+  int index = find(Name);
   if(index != -1){/** Si se encontr\'o name */
     return the_directory[index].get_number();
   }else{/** index es -1 */
@@ -109,10 +115,10 @@ void Phone_Directory::save(){
         este nombre o -1, en caso de que el
         nombre no est\'e presente
 */
-int Phone_Directory::find(const string& name)const
+int Phone_Directory::find(const string& name_)const
 {
-  for(i=0;i<size;i++){
-    if(the_directory[i].get_name() == name)
+  for(int i=0;i<size;i++){
+    if(the_directory[i].get_name() == name_)
       return i;
   }
   return -1;
@@ -153,6 +159,24 @@ void Phone_Directory::reallocate(){
   //Hacer que the_directory apunte al nuevo
   //directorio
   the_directory = new_directory;
+}
+
+/** Eliminar la entrada con un nombre espec\'ifico
+    del directorio.
+    @param name El nombre de la persona
+    @return El nombre de la persona o una cadena
+            vac\'ia si es que no se encuentra el
+            nombre en el directorio
+*/
+std::string Phone_Directory ::
+    remove_entry(const std::string& name){
+  std::string str="";
+  int index = find(name);
+  if(index != -1){
+    str = the_directory[index].get_name();
+    remove_entry(index);
+  }
+  return str;
 }
 
 void Phone_Directory::remove_entry(int index){

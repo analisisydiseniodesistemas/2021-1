@@ -3,6 +3,7 @@ telef\'onico que utiliza la consola I/O. */
 #include <iostream>
 #include <fstream>
 #include <limits>
+#include <cassert>
 #include "Phone_Directory.h"
 using namespace std;
 // Declaraci\'on de las funciones
@@ -42,6 +43,7 @@ void process_commands(Phone_Directory&
     for(int i=0;i<NUM_COMMANDS;i++){
       cout<<i<<" "<<commands[i]<<"\n";
     }
+    cout<<"Teclea una opcion (0,1,2,3,4): ";
     cin >> opcion;
     cin.ignore(numeric_limits<int>::max(),'\n');
     switch(opcion){
@@ -54,10 +56,10 @@ void process_commands(Phone_Directory&
       case 2:{do_remove_entry(el_directorio);
               break;
       }
-      case 3:{do_save();
+      case 3:{do_save(el_directorio);
               break;
       }
-      case 4:{do_save();
+      case 4:{do_save(el_directorio);
               break;
       }
     }

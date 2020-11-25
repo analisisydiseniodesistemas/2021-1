@@ -61,7 +61,7 @@ private:
             contiene el nombre, o -1 en caso de
             que el nombre no sea encontrado
 */
-int find(const std::string& name);
+int find(const std::string& name_) const;
 /** Agregar una nueva entrada con un nombre
     espec\'ifico y un n\'umero al arreglo de las
     entradas del directorio
@@ -89,7 +89,7 @@ void reallocate();
   int capacity;
 /** Apuntador del arreglo que contiene los datos
     del directorio. */
-  Directory_Entry *the_directory;
+    Directory_Entry *the_directory;
 /** El nombre del archivo de datos que contiene
     los datos del directorio. */
   std::string source_name;
