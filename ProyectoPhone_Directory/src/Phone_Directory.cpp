@@ -22,14 +22,15 @@ Phone_Directory::Phone_Directory()
           cargan en el directorio.
     pre => post
 */
-void load_data(const std::string& source_name)
+void Phone_Directory::load_data(
+                const std::string& source_name)
 {
   // Recordar el nombre de la fuente de datos
   // para utilizarlo al salvar
   this->source_name = source_name;
-  // Crear una cadena de netrada para este archivo.
+  // Crear una cadena de entrada para este archivo.
   ifstream in(source_name.c_str());
-  if(in){
+  if(in){// Si existe el flujo
     string name;
     string number;
     while(getline(in,name)){
@@ -56,10 +57,10 @@ std::string Phone_Directory::add_or_change_entry(
 {
   std::string old_number = "";
   int index = find(name);
-  if(index != -1){
+  if(index != -1){// Si existe entrada con name
     old_number=the_directory[index].get_number();
     the_directory[index].set_number(number);
-  }else{
+  }else{ /** index es -1 */
     add(name,number);
   }
   modified = true;
@@ -74,9 +75,9 @@ std::string Phone_Directory::add_or_change_entry(
 std::string Phone_Directory::lookup_entry(
             const std::string name) const{
   int index = find(name);
-  if(index != -1){
+  if(index != -1){/** Si se encontr\'o name */
     return the_directory[index].get_number();
-  }else{
+  }else{/** index es -1 */
     return "";
   }
 }
@@ -127,7 +128,8 @@ void Phone_Directory::add(const std::string& name,
   if(size == capacity) // If no room, reallocate
     reallocate();
   // Incrementar size y agregar una nueva entrada.
-  the_directory[size] = Directory_Entry(name,number);
+  the_directory[size] =
+                     Directory_Entry(name,number);
   size++;
 }
 
@@ -139,5 +141,20 @@ void Phone_Directory::reallocate(){
   // Duplicar la capacidad.
   capacity *= 2;
   // Crear un nuevo arreglo del directorio.
+  Directory_Entry *new_directory =
+           new Directory_Entry[capacity];
+  //Copiar el antiguo directorio al nuevo
+  for(int i=0;i<size;i++){
+    new_directory[i] = the_directory[i];
+  }
+  //Liberar la memoria ocupada por el
+  //antiguo drectorio
+  delete the_directory;
+  //Hacer que the_directory apunte al nuevo
+  //directorio
+  the_directory = new_directory;
+}
 
+void Phone_Directory::remove_entry(int index){
+  // Ejercicio
 }
