@@ -24,6 +24,6 @@ void Directory_Entry::set_name(std::string name){
   this->name=name;
 }
 
-void Directory_Entry::set_number(std::string name){
+void Directory_Entry::set_number(std::string number){
   this->number=number;
 }

@@ -1,9 +1,11 @@
 #include <fstream>
+#include <cassert>
 using namespace std;
 #include "Phone_Directory.h"
 /** Construir un directorio telef\'onico vacio*/
 Phone_Directory::Phone_Directory()
 {
+    size = 0;
     capacity = 5;
     the_directory = new Directory_Entry[capacity];
 }
@@ -55,19 +57,19 @@ void Phone_Directory::load_data(
             siendo agregada o modificada
 @param number El nuevo n\'umero a ser asignado
 @return El antiguo n\'umero o, si es una nueva
-        entrada, una cadena vacia
+        entrada, una cadena vac\'ia
 */
 std::string Phone_Directory::add_or_change_entry(
-            const std::string& name,
-            const std::string& number)
+            const std::string& name_,
+            const std::string& number_)
 {
   std::string old_number = "";
-  int index = find(name);
+  int index = find(name_);
   if(index != -1){// Si existe entrada con name
     old_number=the_directory[index].get_number();
-    the_directory[index].set_number(number);
+    the_directory[index].set_number(number_);
   }else{ /** index es -1 */
-    add(name,number);
+    add(name_,number_);
   }
   modified = true;
   return old_number;
@@ -118,8 +120,10 @@ void Phone_Directory::save(){
 int Phone_Directory::find(const string& name_)const
 {
   for(int i=0;i<size;i++){
-    if(the_directory[i].get_name() == name_)
+    if(the_directory[i].get_name() == name_){
+
       return i;
+    }
   }
   return -1;
 }

@@ -15,7 +15,6 @@ void do_save(Phone_Directory&);
 
 int main(int argc,char *argv[])
 {
-  cout << "DIRECTORIO TELEFONICO" << endl;
   if(argc < 2){
     cerr << "Se debe especificar el nombre del "
          << "archivo de datos que contiene el "
@@ -40,6 +39,7 @@ void process_commands(Phone_Directory&
   const int NUM_COMMANDS = 5;
   int opcion = NUM_COMMANDS - 1;
   do{
+    cout << "\nDIRECTORIO TELEFONICO" << endl;
     for(int i=0;i<NUM_COMMANDS;i++){
       cout<<i<<" "<<commands[i]<<"\n";
     }
@@ -79,7 +79,7 @@ el_directorio.add_or_change_entry(name,number);
   if(old_number != ""){
     cout<<name<<" ha sido cambiado(a) "
         <<"en el directorio.\n"
-        <<"El n\\'umero anteror era"
+        <<"El n\\'umero anterior era "
         <<old_number<<"\n";
   }else{
     cout<<name<<" ha sido agregado(a) "
@@ -92,9 +92,10 @@ void do_lookup_entry(
   string name;
   cout<<"Teclea el nombre: ";
   getline(cin,name);
+  //assert(1==0);
   string number=el_directorio.lookup_entry(name);
   if(number != ""){
-    cout<<"El n\\'umero para "<<name<<" es "
+    cout<<"El n\\'umero de "<<name<<" es "
         <<number<<"\n";
   }else{
     cout<<name<<" no est\\'a en el directorio.\n";
