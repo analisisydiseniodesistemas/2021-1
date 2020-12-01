@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ mostrar_impl_00()
+comment1.params=
+comment1.target=void\ mostrar_impl_01()
+comment2.params=
+comment2.target=void\ mostrar_impl_02()
+comment3.params=
+comment3.target=void\ mostrar_impl_03()
+comment4.params=archivo
+comment4.target=void\ mostrar_archivo(java.lang.String)
+numComments=5
