@@ -85,7 +85,8 @@ el_directorio.add_or_change_entry(
     cout<<name<<" ha sido cambiado(a) "
         <<"en el directorio.\n"
         <<"El n\\'umero anterior era "
-        <<old_number<<"\n";
+        <<old_number<<"\n"
+        <<"Domicilio: "<<domicilio<<"\n";
   }else{
     cout<<name<<" ha sido agregado(a) "
         <<" al directorio.\n";
@@ -95,13 +96,16 @@ el_directorio.add_or_change_entry(
 void do_lookup_entry(
         Phone_Directory& el_directorio){
   string name;
+  string domicilio;
   cout<<"Teclea el nombre: ";
   getline(cin,name);
   //assert(1==0);
   string number=el_directorio.lookup_entry(name);
   if(number != ""){
+    domicilio = el_directorio.lookup_domicilio(name);
     cout<<"El n\\'umero de "<<name<<" es "
-        <<number<<"\n";
+        <<number<<"\n"
+        <<"Domicilio: "<<domicilio<<"\n";
   }else{
     cout<<name<<" no est\\'a en el directorio.\n";
   }

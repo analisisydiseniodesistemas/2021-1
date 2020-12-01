@@ -31,6 +31,9 @@ void load_data(const std::string& source_name);
 */
 std::string lookup_entry(
             const std::string& name) const;
+
+std::string lookup_domicilio(
+            const std::string& name) const;
 /** Modificar el n\'umero asociado con el nombre
     predeterminado para el nuevo n\'umero, o
     agregar una nueva entrada con el nombre <name>

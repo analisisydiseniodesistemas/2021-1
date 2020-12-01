@@ -11,7 +11,8 @@ public:
   ABEntry(const std::string& nombre,
           const std::string& numero,
           const std::string& domicilio);
-
+  std::string get_domicilio();
+  void set_domicilio(std::string domicilio);
 protected:
   /** Domicilio de la entrada de Libro de
       direcciones

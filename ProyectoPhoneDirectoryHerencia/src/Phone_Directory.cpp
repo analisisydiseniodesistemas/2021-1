@@ -75,6 +75,7 @@ std::string Phone_Directory::add_or_change_entry(
   if(index != -1){// Si existe entrada con name
     old_number=the_directory[index].get_number();
     the_directory[index].set_number(number_);
+    the_directory[index].set_domicilio(domicilio);
   }else{ /** index es -1 */
     //add(name_,number_);
     add(name_,number_,domicilio);
@@ -97,6 +98,15 @@ std::string Phone_Directory::lookup_entry(
     return "";
   }
 }
+std::string Phone_Directory::lookup_domicilio(
+            const std::string& Name) const{
+  int index = find(Name);
+  if(index != -1){/** Si se encontr\'o name */
+    return the_directory[index].get_domicilio();
+  }else{/** index es -1 */
+    return "";
+  }
+}
 
 /** Funci\'on para guardar el directorio.
 pre: el directorio ha sido cargado con datos
@@ -112,6 +122,8 @@ void Phone_Directory::save(){
   for(int i=0;i<size; i++){
    out<<the_directory[i].get_name()<<std::endl;
    out<<the_directory[i].get_number()<<std::endl;
+   out<<the_directory[i].get_domicilio()
+      <<std::endl;
   }
   //Cerrar la cadena de salida.
   out.close();

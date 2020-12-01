@@ -11,3 +11,12 @@ ABEntry::ABEntry(const std::string& nombre,
 :Directory_Entry(nombre,numero),
 elDomicilio(domicilio),num_TimesConsulted(0)
 { }
+
+std::string ABEntry::get_domicilio(){
+  return elDomicilio;
+}
+
+void ABEntry::set_domicilio(
+            std::string domicilio){
+  elDomicilio = domicilio;
+}
